@@ -4,9 +4,7 @@
 
 #include <iostream>
 #include <unistd.h>
-#include <time.h>
 #include <termios.h>
-#include <limits>
 #include <fcntl.h>
 
 #define ROWS 26
