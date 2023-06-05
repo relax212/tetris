@@ -1,6 +1,4 @@
 #pragma once
-#ifndef tetr_h
-#define tetr_h
 
 #include <iostream>
 #include <unistd.h>
@@ -28,4 +26,3 @@ void correct(int pole[ROWS][COLUMNS],int pole2[ROWS][COLUMNS],int,int,int&,int,i
 void turns(int pole2[ROWS][COLUMNS],int&,int&,char,int&,int);
 void check(int pole[ROWS][COLUMNS],int&);
 bool results(int pole2[ROWS][COLUMNS]);
-#endif

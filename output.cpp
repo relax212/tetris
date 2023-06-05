@@ -1,5 +1,5 @@
 #include "tetr.h"
-extern int tetrominoes[7][4][5][4];
+#include "figures.h"
 
 static struct termios stored_settings;
 
