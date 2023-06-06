@@ -14,9 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: configure
-      run: ./configure
+      run: g++ corcheck.cpp output.cpp tetris.cpp -o tetris
     - name: make
-      run: make
+      run: ./tetris
     - name: make check
       run: make check
     - name: make distcheck
