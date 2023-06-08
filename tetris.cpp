@@ -12,6 +12,7 @@ int main(){
     fill(pole);
     fill(pole2);
     a = func_random();
+    set_keypress2();
     while(true){
         system("clear");
         if (flag == 0){
@@ -32,6 +33,7 @@ int main(){
             if (results(pole2)){
                 system("clear");
                 std::cout << "Game over\n" << "score = " << score << "\n";
+                reset_keypress();
                 return 0;
             }
         }

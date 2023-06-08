@@ -26,3 +26,5 @@ void correct(int pole[ROWS][COLUMNS],int pole2[ROWS][COLUMNS],int,int,int&,int,i
 void turns(int pole2[ROWS][COLUMNS],int&,int&,char,int&,int);
 void check(int pole[ROWS][COLUMNS],int&);
 bool results(int pole2[ROWS][COLUMNS]);
+void reset_keypress ();
+void set_keypress2 ();

@@ -52,32 +52,31 @@ void fill(int pole[ROWS][COLUMNS]){
         }
     }
 }
-void set_keypress(int pole2[ROWS][COLUMNS], int &h, int &z, int &k, int a)
-{
-  struct termios oldt, newt;
-  int ch;
+void set_keypress2 (){
+        tcgetattr(0, &stored_settings);
+  struct termios newt = stored_settings;
   int oldf;
-  char c;
-  tcgetattr(STDIN_FILENO, &oldt);
-  newt = oldt;
-  newt.c_lflag &= ~(ICANON);
+  newt.c_lflag &= ~(ECHO | ICANON);
   tcsetattr(STDIN_FILENO, TCSANOW, &newt);
   oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
   fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
- 
+}
+void set_keypress(int pole2[ROWS][COLUMNS], int &h, int &z, int &k, int a)
+{
+ char c, ch;
   do {
     ch = c;
     c = getchar();
     } while (c != '\n' && c != EOF);
-
- 
-  tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-  fcntl(STDIN_FILENO, F_SETFL, oldf);
  
   if(ch != EOF)
   {
     turns(pole2,h,z,ch,k,a);
     ch = '0';
   }
- 
+
+}
+void reset_keypress () 
+{
+    tcsetattr(0, TCSANOW, & stored_settings);
 }
