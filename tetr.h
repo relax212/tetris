@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <termios.h>
 #include <fcntl.h>
+#include <limits>
 
 #define ROWS 22
 #define COLUMNS 14
@@ -18,7 +19,7 @@
 
 void output(int pole[ROWS][COLUMNS],int,int);
 void fill (int pole[ROWS][COLUMNS]);
-void set_keypress(int pole2[ROWS][COLUMNS],int&,int&,int&,int);
+void take_butt(int pole2[ROWS][COLUMNS],int&,int&,int&,int);
 int func_random();
 void copy(int pole[ROWS][COLUMNS],int pole2[ROWS][COLUMNS]);
 bool corrector(int pole2[ROWS][COLUMNS],int,int,int,int);

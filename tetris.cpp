@@ -21,7 +21,7 @@ int main(){
         }
         output(pole, score, p);
         if (x == 0){
-            set_keypress(pole2,h,z,k,a);
+            take_butt(pole2,h,z,k,a);
             correct(pole,pole2,k,h,x,z,a);
             k += 1;
         }else{

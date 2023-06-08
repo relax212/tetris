@@ -61,19 +61,17 @@ void set_keypress2 (){
   oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
   fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
 }
-void set_keypress(int pole2[ROWS][COLUMNS], int &h, int &z, int &k, int a)
+void take_butt(int pole2[ROWS][COLUMNS], int &h, int &z, int &k, int a)
 {
- char c, ch;
-  do {
-    ch = c;
-    c = getchar();
-    } while (c != '\n' && c != EOF);
- 
-  if(ch != EOF)
-  {
+ char ch,x,p;
+std::cin.clear();
+p = getchar();
+x = getchar();
+ch = getchar();
+std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+if ( x == '['){
     turns(pole2,h,z,ch,k,a);
-    ch = '0';
-  }
+}
 
 }
 void reset_keypress () 
