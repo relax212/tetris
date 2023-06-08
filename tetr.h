@@ -5,7 +5,7 @@
 #include <termios.h>
 #include <fcntl.h>
 
-#define ROWS 26
+#define ROWS 22
 #define COLUMNS 14
 #define RED "\e[41m"
 #define CLEAN "\e[0m"
