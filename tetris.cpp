@@ -1,13 +1,36 @@
 
 #include "tetr.h"
+int pole [ROWS][COLUMNS];
+int o = 0;
 
-
+//int status, valread, client_fd;
+//struct sockaddr_in serv_addr;
 
 
 int main(){
+    bool game_mode = 0;
+    game_mode = Game_mode();
+    if (game_mode == true){
+        connect();
+    }
+    qqqq();
+}
+void qqq(){
+    while(o == 0){
+        int accept[1] = {0};
+        std::cout << "Waiting for connection\n";
+        //connect(pole);
+        //send(client_fd, hello, 1024, 0);
+        //read(client_fd, buffer, 1024);
+            
+        if (accept[0] == 1)
+            o++;
+            sleep(1);
+        }
+}
+void qqqq(){
     int k = 0,h = 0, x = 0, z = 0, a = 0, score = 0, flag = 0, p = 0;
     char symbol;
-    int pole [ROWS][COLUMNS];
     int pole2 [ROWS][COLUMNS];
     fill(pole);
     fill(pole2);
@@ -34,7 +57,6 @@ int main(){
                 system("clear");
                 std::cout << "Game over\n" << "score = " << score << "\n";
                 reset_keypress();
-                return 0;
             }
         }
         usleep(200000-score);

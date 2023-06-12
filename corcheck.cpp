@@ -133,3 +133,13 @@ bool results (int pole2[ROWS][COLUMNS]){
     }
     return false;
  }
+
+ void perevod(int pole[ROWS][COLUMNS], char pole4[ROWS-1][COLUMNS-2]){
+    int x = 0;
+    for (int i = 0; i < ROWS-1; i++) {
+        for (int j = 1; j < COLUMNS-1; j++) {
+            pole4[i][j] = pole[i][j];
+            x++;
+         }
+    }
+}

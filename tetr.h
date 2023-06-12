@@ -1,13 +1,22 @@
 #pragma once
 
+#include <thread>
+
 #include <iostream>
 #include <unistd.h>
 #include <termios.h>
 #include <fcntl.h>
 #include <limits>
 
+
+#include <arpa/inet.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h>
+
 #define ROWS 22
-#define COLUMNS 14
+#define COLUMNS 12
 #define RED "\e[41m"
 #define CLEAN "\e[0m"
 #define GREEN "\e[42m"
@@ -16,6 +25,7 @@
 #define FOREGROUND_BLACK "\e[1;30m"
 #define FOREGROUND_BLUE "\e[0;34m"
 #define FOREGROUND_RED "\e[0;31m"
+#define PORT 8080
 
 void output(int pole[ROWS][COLUMNS],int,int);
 void fill (int pole[ROWS][COLUMNS]);
@@ -29,3 +39,8 @@ void check(int pole[ROWS][COLUMNS],int&);
 bool results(int pole2[ROWS][COLUMNS]);
 void reset_keypress ();
 void set_keypress2 ();
+bool Game_mode();
+void perevod(int pole[ROWS][COLUMNS],char pole4[ROWS*COLUMNS]);
+int connect();
+void qqq();
+void qqqq();
