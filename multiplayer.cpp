@@ -1,11 +1,21 @@
 #include "tetr.h"
 
 
-void output2(int pole[22][14]){
-    for (int i = 3; i < 22; ++i){
-        for (int j = 0; j < 14; ++j){
-                std::cout << pole[i][j] << CLEAN;
+void output2(int pole[ROWS][COLUMNS], int enemy_score){
+	int flag = 0;
+	std::cout << "\n\n";
+    for (int i = 3; i < ROWS; ++i){
+        for (int j = 0; j < COLUMNS; ++j){
+            if (pole[i][j] == 0 ){
+                std::cout << FOREGROUND_RED RED "■ " << CLEAN;
+            }else{
+                std::cout << GREEN "■ " << CLEAN;
             }
+        }
+		if (flag == 0){
+			std::cout << "enemy score " << enemy_score;
+			flag++;
+		}
 		std::cout << "\n";
         }
 }
@@ -19,11 +29,10 @@ bool Game_mode(){
     return false;
 }
 
-// int connect(int accept[1], int status, int valread, int client_fd, struct sockaddr_in serv_addr)
-int connect(int pole[ROWS][COLUMNS]){
-	int buffer[22][14]= { 0 };
-	int status, valread, client_fd;
-	struct sockaddr_in serv_addr;
+
+/*int connect2(int pole[ROWS][COLUMNS],int client_fd, int status){
+		struct sockaddr_in serv_addr;
+		int buffer2[22][14]= { 0 };
 	if ((client_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		printf("\n Socket creation error \n");
 		return -1;
@@ -32,8 +41,6 @@ int connect(int pole[ROWS][COLUMNS]){
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_port = htons(PORT);
 
-	// Convert IPv4 and IPv6 addresses from text to binary
-	// form
 	if (inet_pton(AF_INET, "10.212.69.103", &serv_addr.sin_addr)
 		<= 0) {
 		printf(
@@ -48,19 +55,15 @@ int connect(int pole[ROWS][COLUMNS]){
 		printf("\nConnection Failed \n");
 		return -1;
 	}
-	while (true){
-	send(client_fd, pole, 1024, 0);
-	read(client_fd, buffer, 1024);
-	output2(buffer);
-	sleep(1);
-	}
+	send(client_fd, pole, 1232, 0);
+	read(client_fd, buffer2, 1232);
 
+	return 10;
 	// closing the connected socket
 	// close(client_fd);
-	return 0;
 }
 
-/*int forward(char hello[ROWS-1][COLUMNS-2]){
+int forward(char hello[ROWS-1][COLUMNS-2]){
     int status, valread, client_fd;
 	struct sockaddr_in serv_addr;
 	char buffer[ROWS-1][COLUMNS-2]= { 0 };

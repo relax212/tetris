@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #define ROWS 22
-#define COLUMNS 12
+#define COLUMNS 14
 #define RED "\e[41m"
 #define CLEAN "\e[0m"
 #define GREEN "\e[42m"
@@ -41,6 +41,5 @@ void reset_keypress ();
 void set_keypress2 ();
 bool Game_mode();
 void perevod(int pole[ROWS][COLUMNS],char pole4[ROWS*COLUMNS]);
-int connect(int poe[ROWS][COLUMNS]);
-void qqq();
-void qqqq();
+int connect2(int poe[ROWS][COLUMNS],int client_fd, int status);
+void output2(int pole[ROWS][COLUMNS], int);

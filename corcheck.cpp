@@ -126,7 +126,7 @@ void check (int pole[ROWS][COLUMNS], int &score){
      }
 }
 bool results (int pole2[ROWS][COLUMNS]){
-    for (int j = 1; j < COLUMNS - 1; ++j){
+    for (int j = 2; j < COLUMNS - 2; ++j){
         if(pole2[3][j] == 9){
             return true;
         }

@@ -10,8 +10,6 @@ void output(int pole[ROWS][COLUMNS],int score, int a){
         for (int j = 0; j < COLUMNS; ++j){
             if (pole[i][j] == 0 ){
                 std::cout << FOREGROUND_RED RED "■ " << CLEAN;
-            }else if (pole[i][j] == 8){
-                std::cout << FOREGROUND_BLUE BLUE "■ " << CLEAN;
             }else if(pole [i][j] == 3){
                 std::cout << GREEN "■ " << CLEAN;
             }else{
@@ -42,9 +40,9 @@ void output(int pole[ROWS][COLUMNS],int score, int a){
 void fill(int pole[ROWS][COLUMNS]){
     for(int i=0; i<ROWS;++i){
         for(int j = 0;j<COLUMNS;++j){
-            if((i == ROWS - 1)){
+            if((i == ROWS - 1 )){
                 pole[i][j] = 9;
-            }else if((j == 0 || j == COLUMNS - 1)){
+            }else if((j == 0 || j == COLUMNS - 1 || j == COLUMNS - 2 || j == 1)){
                 pole[i][j] = 9;
             }else {
                 pole[i][j] = 0;
