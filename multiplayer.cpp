@@ -1,10 +1,14 @@
 #include "tetr.h"
 
 
-int buffer[22][14]= { 0 };
-extern int pole[ROWS][COLUMNS];
-int status, valread, client_fd;
-struct sockaddr_in serv_addr;
+void output2(int pole[22][14]){
+    for (int i = 3; i < 22; ++i){
+        for (int j = 0; j < 14; ++j){
+                std::cout << pole[i][j] << CLEAN;
+            }
+		std::cout << "\n";
+        }
+}
 
 bool Game_mode(){
     int x = 0;
@@ -14,14 +18,12 @@ bool Game_mode(){
         return true;
     return false;
 }
-void q1(){
-	send(client_fd, pole, 1024, 0);
-	read(client_fd, buffer, 1024);
-}
 
 // int connect(int accept[1], int status, int valread, int client_fd, struct sockaddr_in serv_addr)
-int connect(){
-
+int connect(int pole[ROWS][COLUMNS]){
+	int buffer[22][14]= { 0 };
+	int status, valread, client_fd;
+	struct sockaddr_in serv_addr;
 	if ((client_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		printf("\n Socket creation error \n");
 		return -1;
@@ -46,13 +48,12 @@ int connect(){
 		printf("\nConnection Failed \n");
 		return -1;
 	}
+	while (true){
 	send(client_fd, pole, 1024, 0);
 	read(client_fd, buffer, 1024);
-	std::thread t1(qqqq);
-	std::thread t2(q1);
-	t2.join();
-	t1.join();
-
+	output2(buffer);
+	sleep(1);
+	}
 
 	// closing the connected socket
 	// close(client_fd);

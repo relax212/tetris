@@ -41,6 +41,6 @@ void reset_keypress ();
 void set_keypress2 ();
 bool Game_mode();
 void perevod(int pole[ROWS][COLUMNS],char pole4[ROWS*COLUMNS]);
-int connect();
+int connect(int poe[ROWS][COLUMNS]);
 void qqq();
 void qqqq();
