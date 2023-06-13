@@ -107,6 +107,7 @@ void turns(int pole2[ROWS][COLUMNS], int &h, int &z, char x, int &k, int a){
 
 
 void check (int pole[ROWS][COLUMNS], int &score){
+    int flag2 = 0;
      for (int i = 0; i < ROWS - 1; ++i ){
         int flag = 0;
         for (int j = 0; j < COLUMNS; ++j){
@@ -121,9 +122,18 @@ void check (int pole[ROWS][COLUMNS], int &score){
                 pole [x][j] += pole[x-1][j];
                 }
             }
-            score += 5000;
+            flag2++;
+            //score += 5000;
         }
      }
+    if (flag2 == 1)
+        score += 40;
+    if (flag2 == 2)
+        score += 100;
+    if (flag2 == 3)
+        score += 300;
+    if (flag2 == 4)
+        score += 1000;
 }
 bool results (int pole2[ROWS][COLUMNS]){
     for (int j = 2; j < COLUMNS - 2; ++j){

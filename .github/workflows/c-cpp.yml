@@ -17,7 +17,7 @@ jobs:
     - name: setup gcc
       run: sudo apt install build-essential
     - name: configure
-      run: g++ corcheck.cpp output.cpp tetris.cpp -o tetris --static
+      run: g++ corcheck.cpp output.cpp tetris.cpp multiplayer.cpp -o tetris --static
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
